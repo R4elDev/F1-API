@@ -1,0 +1,57 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;    
+}
+
+body {
+    font-family: 'Inria Sans';
+}
+
+/* Tela Inicial */
+#telaInicial{
+    background-image: url("./image\ 1.png");
+    margin: 0;
+    padding: 0;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+}
+
+#introducao{
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 70vh;
+    width: 70vw;
+    color: white;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+}
+
+#introducao img{
+    margin-top: -30px;
+    margin-bottom: 60px;
+}
+
+#pesquisarEquipe{
+    background-color: red;
+    color: white;
+    margin-top: 40px;
+    width: 20vw;
+    height: 5vh;
+    border-radius: 20px;
+    padding: 15px;
+    font-size: 20px;
+}
+
+::placeholder{
+    color: white;
+    font-size: 20px;
+}
+
