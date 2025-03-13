@@ -4,6 +4,16 @@
     box-sizing: border-box;    
 }
 
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
 body {
     font-family: 'Inria Sans';
 }
@@ -48,6 +58,8 @@ body {
     border-radius: 20px;
     padding: 15px;
     font-size: 20px;
+    border: none;
+    outline: none;
 }
 
 ::placeholder{
@@ -55,3 +67,82 @@ body {
     font-size: 20px;
 }
 
+/* Tela Home */
+
+
+#logo{
+    background-color: black;
+    position: fixed;
+    width: 100vw;
+    height: 15vh;
+    z-index: 999999;
+    margin-top: -7% ;
+}
+
+#logo img{
+    align-items: center;
+    width: 20vh;
+    height: auto;
+    margin-left: 45%;
+    display: flex;
+    margin-top: -20px;
+}
+
+#bodyHome{
+    margin-top: 7%;
+    height: 87.5vh;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    background-color: orange;
+}
+
+#pesquisarHome{
+    background-color: black;
+    color: white;
+    margin-top: 90px;
+    width: 20vw;
+    height: 5vh;
+    border-radius: 20px;
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+
+#cardPiloto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 230px;
+    height: 230px;
+    margin-left: 100px;
+    margin-top: 70px;
+    border-top: solid 3px black;
+    border-right: 3px solid black;
+}
+
+#retanguloNome{
+    height: 40px;
+    width: 200px;
+    margin-top:10px;
+    margin-left: 20px;
+}
+
+.retangulo{
+    height: 36px;
+    width: 5%;
+    background-color: black;
+    display: flex;
+}
+
+#nomePiloto{    
+    font-size: 20px;
+    display: flex;
+    margin-left: 23px;
+    margin-top: -25px
+}
+
+#fotoPiloto img{
+    margin-top: 20px;
+}

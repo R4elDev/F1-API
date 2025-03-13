@@ -17,9 +17,32 @@
             <h1>Econtre todos os pilotos da Fórmula 1 em um único lugar!</h1>
             <h1>Através de sua equipe</h1>
             <input type="text" placeholder="Digite uma equipe" id="pesquisarEquipe">
+            <button onclick="mostrarTela('home')">Ir para a Tela Home</button>
         </div>
     </div>
 
+    <!-- Tela Home -->
+    <div class="telaHome" id="telaHome">
+        <div id="logo">
+            <img src="./f1 3.png" alt="logo">
+        </div>
+        <div id="bodyHome" class="bodyHome">
+            <button onclick="mostrarTela('inicial')">Voltar à Tela Inicial</button>
+            <input type="text" placeholder="Digite uma equipe" id="pesquisarHome">
+            <div class="cardPiloto" id="cardPiloto"> 
+                <div class="retanguloNome" id="retanguloNome">
+                    <div class="retangulo" id="retangulo"></div>
+                    <h1 class="nomePiloto" id="nomePiloto">Nome<h1>
+                </div>
+                <div class="fotoPiloto" id="fotoPiloto">
+                    <img src="./User Male.png" alt="">
+                </div>
+            </div>
+        </div>
+       
+        
+
+    </div>
 
 </body>
 </html>
