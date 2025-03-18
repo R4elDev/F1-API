@@ -1,15 +1,41 @@
-function mostrarTela(tela) {
-    // Esconde todas as telas
-    document.getElementById("telaInicial").style.display = "none";
-    document.getElementById("telaHome").style.display = "none";
-    document.getElementById("dadosPiloto").style.display = "none";
-    
-    // Mostra a tela escolhida
-    if (tela === 'inicial') {
-      document.getElementById("telaInicial").style.display = "block";
-    } else if (tela === 'home') {
-      document.getElementById("telaHome").style.display = "block";
-    } else if (tela === 'dadosPiloto') {
-      document.getElementById("dadosPiloto").style.display = "block";
-    }
+//Link API F1
+const apiF1 = ""
+
+//Função da tela inicial 
+async function telaInicial() {
+  
+  //Recebe o nome da equipe 
+  let nomeEquipe = document.getElementById("nomeEquipe").ariaValueMax;
+
+  //Verifica se o nome da equipe inserido 
+  if(nomeEquipe.trim() == ""){
+    alert("Digite o nome de uma equipe!")
+    return;
   }
+
+  document.getElementById("pesquisarEquipe").addEventListener("Keydown", function(event){
+
+    if(event.key == "Enter"){
+      event.preventDefault();
+
+      const  pesquisa = this.value;
+      pesquisar(pesquisa); //faz a pesquisa pela função pesquisar
+
+    }
+
+  })
+
+}
+
+function pesquisar(){
+
+
+}
+
+async function telaHome() {
+  
+}
+
+async function dadosPiloto(params) {
+  
+}
