@@ -69,17 +69,24 @@ body {
 
 /* Tela Home */
 
+#telaHome{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
 
-#logo{
+}
+
+.logo{
     background-color: black;
     position: fixed;
     width: 100vw;
     height: 15vh;
     z-index: 999999;
-    margin-top: -7% ;
 }
 
-#logo img{
+.logo img{
     align-items: center;
     width: 20vh;
     height: auto;
@@ -89,18 +96,18 @@ body {
 }
 
 #bodyHome{
-    margin-top: 7%;
-    height: 87.5vh;
+    height: 100vh;
     width: 100%;
     align-items: center;
     text-align: center;
     background-color: orange;
+
 }
 
 #pesquisarHome{
     background-color: black;
     color: white;
-    margin-top: 90px;
+    margin-top: 150px;
     width: 20vw;
     height: 5vh;
     border-radius: 20px;
@@ -110,7 +117,7 @@ body {
     outline: none;
 }
 
-#cardPiloto{
+#botaoCard{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -120,6 +127,9 @@ body {
     margin-top: 70px;
     border-top: solid 3px black;
     border-right: 3px solid black;
+    background-color: transparent;
+    border-radius: 0px;
+    color: black;
 }
 
 #retanguloNome{
@@ -147,4 +157,37 @@ body {
     margin-top: 20px;
 }
 
+
 /* Tela de Dados do Piloto */
+
+#bodyDados{
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    background-color: orange;
+    display: flex;
+}
+
+#foto img{
+    margin-left: 100px;
+    border-radius: 20px;
+    width: 200px;
+    height: 150px;
+    margin-top: 50px;
+
+}
+
+#dadosPiloto{
+    width: 50vw;
+    height: 60%;
+    margin-top: 100px;
+    margin-left: 50px;
+    font-size: 25px;
+    gap: 60px;
+    text-align: start;
+}
+
+.preenchimentosDados{
+    margin-top: 20px;
+}
