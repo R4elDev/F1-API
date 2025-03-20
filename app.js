@@ -118,6 +118,14 @@ async function telaHome(pilotoEncontrado){
 
 }*/
 
+async function getBuscarPiloto(){
+  // Realiza a requisição para buscar pilotos da equipe
+  const url = `https://api.openf1.org/v1/drivers`;
+  const response = await fetch(url);
+  const data = await response.json();
+  const dataDesc =  await data.description
+}
+
 //Função para buscar piloto
 async function buscarPiloto(nomeEquipe) {
 
@@ -127,12 +135,8 @@ async function buscarPiloto(nomeEquipe) {
       alert("Digite uma equipe!");
       return alert;
   }
-
-      // Realiza a requisição para buscar pilotos da equipe
-      const url = `https://api.openf1.org/v1/drivers`;
-      const response = await fetch(url);
-      const data = await response.json();
-      const dataDesc =  await data.description
+    const data = await getBuscarPiloto()
+      
       const pilotoEncontrado = {
         foto: [],
         nome: [],
@@ -147,18 +151,19 @@ async function buscarPiloto(nomeEquipe) {
         nomeEquipe: []
       } 
 
-      console.log(data)
+      // console.log(data)
         
-        for (let p = 0; p < data.length; p++) {
-          let pilotos = data[p].team_name;
-          console.log(pilotos); 
-        }
+      // for (let p = 0; p < data.length; p++) {
+      //   let pilotos = data[p].team_name
+      //   console.log(pilotos)
+      // }
+
 
      // let pilotos = data[0].team_name
      // console.log(pilotos)
       
 
-      pilotos.forEach(function(item){
+      data.forEach(function(item, indice){
 
         console.log(item.team_name)
 
@@ -206,6 +211,9 @@ async function buscarPiloto(nomeEquipe) {
   
 
 }
+
+
+
 
 //Função para obter a foto do piloto na API OPEN F1
 /*async function obterFotoPiloto(numeroPilotoEcontrado) {
