@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function telaInicial() {
     
   // Input de pesquisa da tela inicial
-  const inputPesquisa = document.getElementById('pesquisarEquipe');
+  const inputPesquisa = document.getElementById('pesquisarHome');
 
    // Detecta ao clicar enter no input
   inputPesquisa.addEventListener('keydown', function(event) {
@@ -22,10 +22,7 @@ async function telaInicial() {
           return alert;
         }
         
-        //Muda para a tela home  
-        window.location.href = 'telaHome.html';
-
-        buscarPiloto()
+        buscarPiloto(nomeEquipe)
 
        }
    });
@@ -67,13 +64,10 @@ async function getBuscarPiloto(){
 }
 
 //Função para buscar piloto
-async function buscarPiloto(nomeEquipe) {
+async function buscarPiloto(nomeEquipeLook) {
 
-  //let teste = "Red Bull Racing"
-
-  //console.log(nomeEquipe)
         
-  if (nomeEquipe === "") {
+  if (nomeEquipeLook === "") {
       alert("Digite uma equipe!");
       return alert;
   }
@@ -98,67 +92,70 @@ async function buscarPiloto(nomeEquipe) {
         nomeEquipe: []
       }
 
-      // tamanho do array
-      console.log(data.length);
 
       // Desta forma percorre o array
       
       data.forEach(function(item, indice){
 
-        console.log(item.team_name)
-
         equipePiloto.nomeEquipe = item.team_name
         equipePiloto.nomePiloto = item.full_name
 
 
-        if(String(listaEncontrados.nomePiloto).includes(String(equipePiloto.nomePiloto))){
+        if(nomeEquipeLook == equipePiloto.nomeEquipe){
 
-          listaEncontrados.nomePiloto.push(equipePioto.nomePiloto)
-          listaEncontrados.nomeEquipe.push(equipePioto.nomeEquipe)
+          listaEncontrados.nomePiloto.push(equipePiloto.nomePiloto)
+          listaEncontrados.nomeEquipe.push(equipePiloto.nomeEquipe)
 
         }
       })
-
-
-      console.log(listaEncontrados)
-
-
-      if (String(nomeEquipe).toLowerCase == String(listaEncontrados.nomeEquipe).toLocaleLowerCase){
-
-        dataDesc.forEach(function(item){
-          pilotoEncontrado.foto.push(item['headshot_url'])
-          pilotoEncontrado.nome.push(item['full_name'])
-          pilotoEncontrado.equipe.push(item['team_name'])
-          pilotoEncontrado.nacionalidade.push(item['country_code'])
-          pilotoEncontrado.abreviacaoNome.push(item['name_acronym'])
-          pilotoEncontrado.numero.push(item['driver_number'])
-          pilotoEncontrado.corEquipe.push(item['team_colour'])
-        }); 
+    
       
-      }
+
+      listaEncontrados.nomeEquipe.slice(0, 10).forEach(function(item) {
+
+
+        if (nomeEquipeLook == item){
+
+            data.slice(0, 10).forEach(function(item){
+              pilotoEncontrado.foto.push(item['headshot_url'])
+              pilotoEncontrado.nome.push(item['full_name'])
+              pilotoEncontrado.equipe.push(item['team_name'])
+              pilotoEncontrado.nacionalidade.push(item['country_code'])
+              pilotoEncontrado.abreviacaoNome.push(item['name_acronym'])
+              pilotoEncontrado.numero.push(item['driver_number'])
+              pilotoEncontrado.corEquipe.push(item['team_colour'])
+
+              console.log(pilotoEncontrado);
+              criarCardPiloto(pilotoEncontrado)
+              
+
+          }); 
+      
+       }
+      })
+    
 
       if (!pilotoEncontrado || pilotoEncontrado.length === 0) {
           alert("Nenhuma equipe encontrada ou sem pilotos.");
           return alert;
-      }
-
-      console.log(pilotoEncontrado)
-
-    return pilotoEncontrado
-  
-
-
+      }    
+    
 }
 
 
 
 
 // Função para criar um card de piloto
-function criarCardPiloto(pilotoEncontrado) {
+function criarCardPiloto(pilotoEncontrado) { 
 
   if (pilotoEncontrado === "") {
     return false
   }else{
+
+    // ########## Faltou criar o card cabaço... #######
+
+    const card = document.createElement("div")
+    card.className = 'card'
 
     const botaoCard = document.createElement("button")
     botaoCard.className = 'botaoCard'
@@ -194,16 +191,17 @@ function criarCardPiloto(pilotoEncontrado) {
      pilotosContainer.appendChild(fotoPiloto)
      fotoPiloto.appendChild(img)
 
+
+
+     // Adicionando o pai na tela
+      const paiCards = document.getElementById('container--cards')
+
+      paiCards.append(pilotosContainer)
+
   }
 
 }
 
 
 telaInicial()
-
-// telaHome()
-
-//buscarPiloto()
-
-// pilotoEncontrado.forEach(criarCardPiloto)
 
