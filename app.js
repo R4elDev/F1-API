@@ -1,55 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  telaInicial(); // Chame a função que precisa acessar os elementos
-});
-
-//Função tela inicial
-async function telaInicial() {
-    
-  // Input de pesquisa da tela inicial
-  const inputPesquisa = document.getElementById('pesquisarHome');
-
-   // Detecta ao clicar enter no input
-  inputPesquisa.addEventListener('keydown', function(event) {
-
-      if (event.key === 'Enter') {
-          
-        //Pega o valor digitado no input
-        let nomeEquipe = inputPesquisa.value.trim();
- 
-        // Verifica se o nome da equipe foi informado
-        if (nomeEquipe === "") {
-          alert("Digite uma equipe!");
-          return alert;
-        }
-        
-        buscarPiloto(nomeEquipe)
-
-       }
-   });
-
-
-  // return nomeEquipe
-
-}
-
-//Função tela home
-// async function telaHome(pilotoEncontrado){
-
-//   // Verifica se o botão não teve erro ao executar
-//   if (botaoCard) {
-//     // Adiciona o click no botão
-//     botaoCard.addEventListener("click", function() {
-//         //Muda para a tela de dados dos pilotos
-//         window.location.href = "telaDadosPilotos.html";
-//     });
-//   } else {
-//     console.error("Botão não encontrado!");
-//   };
-
-  
-
-
-// }
 
 async function getBuscarPiloto(){
   // Realiza a requisição para buscar pilotos da equipe
@@ -66,7 +14,6 @@ async function getBuscarPiloto(){
 //Função para buscar piloto
 async function buscarPiloto(nomeEquipeLook) {
 
-        
   if (nomeEquipeLook === "") {
       alert("Digite uma equipe!");
       return alert;
@@ -125,9 +72,10 @@ async function buscarPiloto(nomeEquipeLook) {
               pilotoEncontrado.numero.push(item['driver_number'])
               pilotoEncontrado.corEquipe.push(item['team_colour'])
 
-              console.log(pilotoEncontrado);
+          
               criarCardPiloto(pilotoEncontrado)
               
+              pilotoEncontrado = ""
 
           }); 
       
@@ -152,25 +100,25 @@ function criarCardPiloto(pilotoEncontrado) {
     return false
   }else{
 
-    // ########## Faltou criar o card cabaço... #######
+
 
     const card = document.createElement("div")
-    card.className = 'card'
+    card.classList.add = 'card'
 
     const botaoCard = document.createElement("button")
-    botaoCard.className = 'botaoCard'
+    botaoCard.classList.add = 'botaoCard'
 
     const pilotosContainer = document.createElement('div')
-    pilotosContainer.className = 'pilotosContainer'
+    pilotosContainer.classList.add = 'pilotosContainer'
 
     const retangulo = document.createElement('div')
-    retangulo.className = 'retangulo'
+    retangulo.classList.add = 'retangulo'
 
     const nomePiloto = document.createElement('h1')
-    nomePiloto.className = 'nomePiloto'
+    nomePiloto.classList.add = 'nomePiloto'
 
     const fotoPiloto = document.createElement('div')
-    fotoPiloto.className = 'fotoPiloto'
+    fotoPiloto.classList.add = 'fotoPiloto'
 
     const img = document.createElement('img')
 
@@ -196,7 +144,7 @@ function criarCardPiloto(pilotoEncontrado) {
      // Adicionando o pai na tela
       const paiCards = document.getElementById('container--cards')
 
-      paiCards.append(pilotosContainer)
+      paiCards.appendChild(pilotosContainer)
 
   }
 
