@@ -53,7 +53,7 @@ body {
     margin-bottom: 60px;
 }
 
-#pesquisarEquipe{
+#buttonInicial{
     background-color: red;
     color: white;
     margin-top: 40px;
@@ -121,7 +121,93 @@ body {
     outline: none;
 }
 
-#botaoCard{
+.containerCard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.card {
+    flex-direction: column-reverse;
+    gap: 100px;
+    margin-left: 300px;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s, box-shadow 0.3s;
+    cursor: pointer;
+    border-radius: 0px;
+    background-color: transparent;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+.frenteCard,
+.infoCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.frenteCard {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 3px black;
+    border-right: 3px solid black;
+    border-radius: 0px;
+}
+
+.imagemCard {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.infoCard {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+.infoCard h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.infoCard p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+
+#infoCard{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -150,48 +236,64 @@ body {
     display: flex;
 }
 
-#nomePiloto{    
+#nomeCard{    
     font-size: 20px;
     display: flex;
     margin-left: 23px;
     margin-top: -25px
 }
 
-#fotoPiloto img{
+#imagemCard img{
     margin-top: 20px;
 }
 
-
-/* Tela de Dados do Piloto */
-
-#bodyDados{
-    height: 100vh;
+/* div oculta */
+.cardInfo {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
     width: 100%;
-    align-items: center;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    padding-top: 60px;
+    transition: opacity 0.3s ease;
+}
+
+.cardContent {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    background-color: orange;
-    display: flex;
 }
 
-#foto img{
-    margin-left: 100px;
-    border-radius: 20px;
-    width: 200px;
-    height: 150px;
-    margin-top: 50px;
-
+.cardContent img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
-#dadosPiloto{
-    width: 50vw;
-    height: 60%;
-    margin-top: 100px;
-    margin-left: 50px;
-    font-size: 25px;
-    gap: 60px;
-    text-align: start;
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    cursor: pointer;
 }
 
-.preenchimentosDados{
-    margin-top: 20px;
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
+
