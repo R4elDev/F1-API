@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const pesquisarHome = document.querySelector("#pesquisarHome");
 const containerCards = document.getElementById("containerCards");
 const objetoPilotos = new Set(); // Para armazenar pilotos únicos
@@ -75,7 +75,7 @@ function createCard(piloto) {
 
     return card;
 }
-=======
+
 
 async function getBuscarPiloto(){
   // Realiza a requisição para buscar pilotos da equipe
@@ -228,7 +228,7 @@ function criarCardPiloto(pilotoEncontrado) {
 
 }
 
->>>>>>> 18c4666a471b12f6d322513806a2cfc0f2183c2d
+
 
 // Função para abrir a modal
 function showModal(piloto) {
@@ -239,7 +239,7 @@ function showModal(piloto) {
     const nacionalidadeCard = document.getElementById("nacionalidadeCard");
     const numeroCard = document.getElementById("numeroCard");
 
-<<<<<<< HEAD
+
     nomeCard.textContent = piloto.full_name;
     imagemCard.src = piloto.headshot_url;
     equipeCard.textContent = `Equipe: ${piloto.team_name}`;
@@ -285,6 +285,3 @@ pesquisarHome.addEventListener("input", (event) => {
 });
 
 
-
-=======
->>>>>>> 18c4666a471b12f6d322513806a2cfc0f2183c2d
