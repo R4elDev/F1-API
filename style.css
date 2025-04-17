@@ -234,6 +234,11 @@ body {
     width: 5%;
     background-color: black;
     display: flex;
+    
+}
+
+.nomeFrente{
+    font-size: 10px;
 }
 
 #nomeCard{    

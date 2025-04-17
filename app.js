@@ -13,6 +13,7 @@ fetch("https://api.openf1.org/v1/drivers")
 
 // Função para gerar os cards
 function generateCards(pilotos) {
+
     // Filtra pilotos únicos com base no nome
     const listaPilotosUnicos = pilotos.filter((piloto) => {
         if ([...objetoPilotos].some((pilotoReal) => pilotoReal.full_name === piloto.full_name)) {
@@ -38,9 +39,19 @@ function createCard(piloto) {
     const cardFront = document.createElement("div");
     cardFront.classList.add("frenteCard");
 
+    const retangulo = document.createElement("div")
+    retangulo.className = "retangulo"
+
+    const nomeFrente = document.createElement("p")
+
     const img = document.createElement("img");
+    
+    nomeFrente.textContent = piloto.broadcast_name;
     img.src = piloto.headshot_url;
     img.classList.add("cardImagem");
+
+    cardFront.appendChild(retangulo)
+    cardFront.appendChild(nomeFrente);
     cardFront.appendChild(img);
 
     // Cria o verso do card
