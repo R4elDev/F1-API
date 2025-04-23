@@ -6,7 +6,6 @@ const objetoPilotos = new Set(); // Para armazenar pilotos únicos
 fetch("https://api.openf1.org/v1/drivers")
     .then((response) => response.json())
     .then((data) => {
-        // Chama a função para gerar os cards
         generateCards(data);
     })
     .catch((error) => console.log("Erro ao buscar dados: ", error));
@@ -39,20 +38,29 @@ function createCard(piloto) {
     const cardFront = document.createElement("div");
     cardFront.classList.add("frenteCard");
 
+    const paiRetangulo = document.createElement('div')
+
+    const paiImagem = document.createElement("div")
+    paiImagem.className = "paiImagem"
+    
     const retangulo = document.createElement("div")
     retangulo.className = "retangulo"
 
     const nomeFrente = document.createElement("p")
+    nomeFrente.className = "nomeFrente"
 
     const img = document.createElement("img");
+    img.className = "imagemCard"
     
     nomeFrente.textContent = piloto.broadcast_name;
-    img.src = piloto.headshot_url;
-    img.classList.add("cardImagem");
+    img.src = piloto.headshot_url || "User Male.png";
+    
 
-    cardFront.appendChild(retangulo)
-    cardFront.appendChild(nomeFrente);
-    cardFront.appendChild(img);
+    paiRetangulo.appendChild(retangulo)
+    paiRetangulo.appendChild(nomeFrente);
+    cardFront.appendChild(paiRetangulo);
+    paiImagem.appendChild(img);
+    cardFront.appendChild(paiImagem);
 
     // Cria o verso do card
     const cardBack = document.createElement("div");
@@ -86,7 +94,7 @@ function createCard(piloto) {
     return card;
 }
 
-// Função para abrir a modal
+//função para mostrar a modal com as informações
 function showModal(piloto) {
     const infoCard = document.getElementById("infoCard");
     const nomeCard = document.getElementById("nomeCard");
@@ -95,26 +103,23 @@ function showModal(piloto) {
     const nacionalidadeCard = document.getElementById("nacionalidadeCard");
     const numeroCard = document.getElementById("numeroCard");
 
-    nomeCard.textContent = piloto.full_name;
-    imagemCard.src = piloto.headshot_url;
-    equipeCard.textContent = `Equipe: ${piloto.team_name}`;
-    nacionalidadeCard.textContent = `Nacionalidade: ${piloto.country_code}`;
-    numeroCard.textContent = `Número: ${piloto.driver_number}`;
+    nomeCard.textContent = piloto.full_name.toUpperCase();
+    imagemCard.src = piloto.headshot_url || "User Male.png";
+    equipeCard.textContent = `Equipe: ${piloto.team_name || "N/A"}`;
+    nacionalidadeCard.textContent = `Nacionalidade: ${piloto.country_code || "N/A"}`;
+    numeroCard.textContent = `Número: ${piloto.driver_number || "N/A"}`;
 
-    infoCard.style.display = "block";
+    infoCard.style.display = "flex";
 }
 
-// Função para fechar a modal
 const fecharInfos = document.getElementById("close-btn");
 fecharInfos.addEventListener("click", () => {
-    const infoCard = document.getElementById("infoCard");
-    infoCard.style.display = "none";
+    document.getElementById("infoCard").style.display = "none";
 });
 
-// Fechar a modal quando clicar fora da modal
-window.addEventListener("click", (event) => {
+window.addEventListener("click", (e) => {
     const infoCard = document.getElementById("infoCard");
-    if (event.target === infoCard) {
+    if (e.target === infoCard) {
         infoCard.style.display = "none";
     }
 });
