@@ -81,6 +81,7 @@ function createCard(piloto) {
     const numero = document.createElement("p");
     numero.textContent = `Número: ${piloto.driver_number}`;
     cardBack.appendChild(numero);
+    
 
     // Adiciona a frente e o verso no card
     card.appendChild(cardFront);
@@ -133,7 +134,7 @@ pesquisarHome.addEventListener("input", (event) => {
 
     // Filtra a lista de pilotos com base no nome da equipe
     const filtroPilotos = [...objetoPilotos].filter((piloto) => {
-        const nomeEquipe = piloto.team_name || ''; // Verifica se existe o nome da equipe
+        const nomeEquipe = piloto.team_name || ''; 
         return nomeEquipe.toLowerCase().includes(pesquisarEquipe);
     });
 
